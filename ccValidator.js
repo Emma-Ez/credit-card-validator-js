@@ -39,12 +39,22 @@ function identifyCardType(cardNumber) {
         return cardType;
       }
     }
-    return null; // Unknown card type
-  }
+    return null;
+}
   
-  const expectedLengths = {
+const expectedLengths = {
     Visa: 16,
     MasterCard: 16,
     AmericanExpress: 15,
     Discover: 16
-  };
+};
+
+// Usage
+let cardNumber = "5224 5678 4012 3456";
+    if (validateCard(cardNumber)) {
+      console.log("Valid card!");
+      console.log("Card Type:", identifyCardType(cardNumber));
+    } else {
+      console.log("Invalid card!");
+}
+    
