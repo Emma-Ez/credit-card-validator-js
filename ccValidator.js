@@ -25,3 +25,26 @@ for (let i = cardNumber.length - 1; i >= 0; i--) {
     return sum % 10 === 0;
 }
   
+// Identify card type based on card number using RegEx
+function identifyCardType(cardNumber) {
+    const cardTypeRegexes = {
+      Visa: /^4/,
+      MasterCard: /^5[1-5]/,
+      AmericanExpress: /^3[47]/,
+      Discover: /^6(?:011|5)/
+    };
+  
+    for (const cardType in cardTypeRegexes) {
+      if (cardTypeRegexes[cardType].test(cardNumber)) {
+        return cardType;
+      }
+    }
+    return null; // Unknown card type
+  }
+  
+  const expectedLengths = {
+    Visa: 16,
+    MasterCard: 16,
+    AmericanExpress: 15,
+    Discover: 16
+  };
